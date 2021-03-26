@@ -4,7 +4,9 @@ import CourseContainer from './Container/CourseContainer'
 class App extends React.Component {
 
     state = {
-      coursesArray: []
+      coursesArray: [],
+      classesClicked: false,
+      savedClicked: false
     }
 
     componentDidMount() {
@@ -13,14 +15,13 @@ class App extends React.Component {
       .then(data => this.setState({ coursesArray: data}));
     }
 
+
     render() {
-        console.log(this.state.coursesArray)
+        
         return(
             <div>
-              <button>Classes</button>
-              <button>Saved Classes</button>
               <div>
-                <CourseContainer coursesArray={this.state.coursesArray}/>
+                <CourseContainer coursesArray={this.state.coursesArray} />
               </div>
             </div>           
         )
